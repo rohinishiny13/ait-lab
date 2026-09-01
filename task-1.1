@@ -1,0 +1,41 @@
+graph {
+    'a' = [ 'b','c' ]
+    'b' = [],
+    'c' = []
+}
+
+ visited = set()
+ queue = deque()
+
+ start = 'a'
+ queue.append(start)
+ visited.add(start)
+
+ while queue:
+    vertex = queue.popleft()
+    print(vertex)
+
+    for neighbour in graph[vertex]:
+        if neighbour not in visited:
+            visited.add(neighbour)
+            queue.append(neighbour)
+
+
+graph = {
+    'A': ['B', 'C'],
+    'B': [],
+    'C': []
+}
+
+visited = set()
+
+def dfs(node):
+    if node not in visited:
+        print(node, end=" ")
+        visited.add(node)
+
+        for neighbor in graph[node]:
+            dfs(neighbor)
+
+print("DFS Traversal:", end=" ")
+dfs('A')
