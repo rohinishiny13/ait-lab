@@ -1,0 +1,36 @@
+def hill_climbing(start, goal, graph):
+    current = start
+
+    while True:
+        print("Current node:", current)
+
+        if current == goal:
+            print("Goal reached!")
+            break
+
+        neighbors = graph.get(current, [])
+
+        if not neighbors:
+            print("No better neighbor. Stopped.")
+            break
+
+        # Select the neighbor with the highest value
+        next_node = max(neighbors, key=lambda x: x[1])
+
+        if next_node[1] <= graph[current][0][1] if graph[current] else False:
+            print("No better move. Stopped.")
+            break
+
+        current = next_node[0]
+
+
+graph = {
+    'A': [('B', 3), ('C', 5)],
+    'B': [('D', 6)],
+    'C': [('E', 8)],
+    'D': [('F', 7)],
+    'E': [('F', 10)],
+    'F': []
+}
+
+hill_climbing('A', 'F', graph)
