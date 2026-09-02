@@ -1,0 +1,4 @@
+def minimax(a, b, c):
+    return max(min(a, b), min(b, c))
+
+print(minimax(10, 12, 15))
