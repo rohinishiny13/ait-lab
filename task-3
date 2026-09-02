@@ -1,0 +1,24 @@
+import heapq
+
+graph = {
+    'S': [('A', 1), ('B', 4)],
+    'A': [('G', 5)],
+    'B': [('G', 1)],
+    'G': []
+}
+
+h = {'S': 4, 'A': 3, 'B': 1, 'G': 0}
+
+q = [(h['S'], 0, 'S')]
+
+while q:
+    f, cost, node = heapq.heappop(q)
+
+    print(node)
+
+    if node == 'G':
+        break
+
+    for n, c in graph[node]:
+        new_cost = cost + c
+        heapq.heappush(q, (new_cost + h[n], new_cost, n))
