@@ -1,0 +1,15 @@
+R1 = 30
+R2 = 70
+total = R1 + R2
+p1 = R1 / total
+p2 = R2 / total
+print("R1 = ", R1)
+print("R2 = ", R2)
+print("total = ", total)
+print("p1 = ", p1)
+print("p2 = ",p2)
+if p1 > p2:
+    print("best route: R1")
+else:
+    print("best route: R2")
+print ("p1 + p2 = ",p1 + p2)
